@@ -1,8 +1,8 @@
 import React from 'react'
-import moment from 'moment'
+import moment from 'moment-timezone'
 import Image from 'next/image'
 
-const TodaysWeather = ({city, weather}) => {
+const TodaysWeather = ({city, weather, timezone}) => {
     return (
         <div className="today">
             <div className="today__inner">
@@ -20,11 +20,11 @@ const TodaysWeather = ({city, weather}) => {
                     <div className="today__sun-times">
                         <div>
                             <span>Sunrise</span>
-                            <span>{moment.unix(weather.sunrise).format("LT")}</span>
+                            <span>{moment.unix(weather.sunrise).tz(timezone).format("LT")}</span>
                         </div>
                         <div>
                             Sunset
-                            <span>{moment.unix(weather.sunset).format("LT")}</span>
+                            <span>{moment.unix(weather.sunset).tz(timezone).format("LT")}</span>
                         </div>
                     </div>
                 </div>
@@ -32,7 +32,7 @@ const TodaysWeather = ({city, weather}) => {
                 <div className="today__right-content">
                     <div className="today__icon-wrapper">
                         <div>
-                            <Image src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt="weather icon" layout="fill" />
+                            <Image src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={weather.weather[0].description} layout="fill" />
                         </div>
                     </div>
                     <h3>
