@@ -11,6 +11,7 @@ export default function Home() {
 
       <div className="home">
         <div className="container">
+          <h1>Weather Forecast App</h1>
           <SearchBox placeholder="Search for a city..." />
           <FamousPlaces />
         </div>

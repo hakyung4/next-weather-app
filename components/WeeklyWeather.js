@@ -29,22 +29,6 @@ const WeeklyWeather = ({weeklyWeather, timezone}) => {
                                             <span>{weather.temp.min.toFixed(0)}&deg;C</span>
                                         </h4>
                                     </div>
-
-                                    <div className="weekly__sun-times">
-                                        <div>
-                                            <span>Sunrise</span>
-                                            <span>
-                                                {moment.unix(weather.sunrise).tz(timezone).format("LT")}
-                                            </span>
-                                        </div>
-
-                                        <div>
-                                            <span>Sunset</span>
-                                            <span>
-                                                {moment.unix(weather.sunset).tz(timezone).format("LT")}
-                                            </span>
-                                        </div>
-                                    </div>
                                 </div>
 
                                 <div className="weekly__right-content">
